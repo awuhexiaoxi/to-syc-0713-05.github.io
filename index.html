@@ -100,6 +100,7 @@
       color: black;
       margin-top: 5px;
       text-align: center;
+      font-size: 1.1em;
     }
   </style>
 </head>
@@ -111,32 +112,32 @@
   </audio>
 
   <h1>🎉 生日快乐！🎉</h1>
-  <p class="subtext">您的礼物请查收 🎁</p>
+  <p class="subtext">祝孙老师22岁生日快乐！！🎂</p>
 
   <div class="grid">
-    <!-- 礼物盒子 1：显示图片 gift1.jpg -->
+    <!-- 1. 礼物盒子1：展示图片 gift1.jpg -->
     <img class="gift-box" src="giftbox1.png" onclick="showModal('gift1.jpg')" />
 
-    <!-- 礼物盒子 2：跳转小红书视频 -->
+    <!-- 2. 礼物盒子2：打开小红书链接 -->
     <img class="gift-box" src="giftbox2.png" onclick="openExternalVideo()" />
 
-    <!-- 礼物盒子 3：显示图片 gift2.jpg -->
+    <!-- 3. 礼物盒子3：展示图片 gift2.jpg -->
     <img class="gift-box" src="giftbox3.png" onclick="showModal('gift2.jpg')" />
 
-    <!-- 礼物盒子 4：播放录音 -->
-    <img class="gift-box" src="giftbox4.png" onclick="showAudio('https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名/record1.mp3')" />
+    <!-- 4. 礼物盒子4：播放音频 -->
+    <img class="gift-box" src="giftbox4.png" onclick="showAudio('https://cdn.jsdelivr.net/gh/awuhexiaoxi/birthday-assets/record1.mp3')" />
 
-    <!-- 礼物盒子 5：信封图点击后弹出贺卡 -->
+    <!-- 5. 礼物盒子5：打开信封+动态贺卡 -->
     <img class="gift-box" src="giftbox5.png" onclick="showEnvelope()" />
 
-    <!-- 礼物盒子 6：带提示字的跳转链接图片 -->
+    <!-- 6. 礼物盒子6：链接图+提示 -->
     <div style="text-align: center;">
       <img class="gift-box" src="giftbox6.png" onclick="showLinkImage()" />
       <p class="final-note">最后打开这个哦~ 🎉</p>
     </div>
   </div>
 
-  <!-- 模态弹窗 -->
+  <!-- 弹窗 -->
   <div id="modal" class="modal" onclick="closeModal(event)">
     <div class="modal-content" id="modalContent">
       <span class="close" onclick="closeModal(event)">×</span>
@@ -155,8 +156,13 @@
     function showAudio(audioSrc) {
       const modal = document.getElementById("modal");
       const modalContent = document.getElementById("modalContent");
-      modalContent.innerHTML = '<span class="close" onclick="closeModal(event)">×</span>' +
-        '<audio controls autoplay src="' + audioSrc + '"></audio>';
+      modalContent.innerHTML = `
+        <span class="close" onclick="closeModal(event)">×</span>
+        <audio controls>
+          <source src="${audioSrc}" type="audio/mpeg">
+          您的浏览器不支持音频播放
+        </audio>
+      `;
       modal.style.display = "flex";
     }
 
